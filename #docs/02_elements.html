@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="angular-elements">Angular Elements</h1>
+<ul>
+<li><a href="#angular-elements">Angular Elements</a>
+<ul>
+<li><a href="#exposing-an-angular-component-as-an-custom-elements">Exposing an Angular Component as an Custom Elements</a></li>
+<li><a href="#dynamically-loading-a-micro-app">Dynamically loading a Micro App</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="exposing-an-angular-component-as-an-custom-elements">Exposing an Angular Component as an Custom Elements</h2>
+<p>In this example you will expose an Angular Component as an Custom Element and dynamically load it.</p>
+<ol>
+<li>
+<p>Look into your <code>package.json</code> and find out that the package <code>@angular/elements</code> has been installed (when starting from scratch, this can be done using <code>ng add @angular/elements</code> which is also adding the needed polyfills).</p>
+</li>
+<li>
+<p>Have a look into the <code>flight-app</code>'s <code>flight-cancelling</code> folder and inspect its contents. It contains a module, a simple component as well as two service files.</p>
+</li>
+<li>
+<p>Find out the the <code>FlightCancellingService</code> in the file <code>flight-cancelling.service</code> is forwarding to the <code>DefaultFlightCancellingService</code>. This means that everyone who is requesting a <code>FlightCancellingService</code> gets an <code>DefaultFlightCancellingService</code>.</p>
+</li>
+<li>
+<p>Open the <code>flight-cancelling.module</code> file and make sure that the <code>FlightCancellingComponent</code> is registered as an entry component.</p>
+ <details>
+ <summary>Show code</summary>
+ <p>
+<pre class="hljs"><code><div><span class="hljs-meta">@NgModel</span>({
+    imports: [
+        [...]
+    ],
+    declarations: [
+        FlightCancellingComponent
+    ],
+    entryComponents: [
+        FlightCancellingComponent
+    ],
+    [...]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> FlightCancellingModule { 
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> injector: Injector</span>) {
+
+        <span class="hljs-keyword">let</span> customElement = createCustomElement(FlightCancellingComponent, {
+        injector: <span class="hljs-keyword">this</span>.injector
+        });
+
+        customElements.define(<span class="hljs-string">'flight-cancelling'</span>, customElement);
+
+    }
+}
+</div></code></pre>
+ </p>
+ </details>
+</li>
+<li>
+<p>Use the modules constructor to wrap the <code>FlightCancellingComponent</code> as a custom element and register it under the name <code>flight-cancelling</code> with the browser.</p>
+</li>
+<li>
+<p>Open the file <code>default-flight-cancelling.service.ts</code> and implement its show method so that it dynamically creates an element with the name <code>flight-cancelling</code>.</p>
+ <details>
+ <summary>Show code</summary>
+ <p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> flightCancelling = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'flight-cancelling'</span>);
+
+flightCancelling[<span class="hljs-string">'flightId'</span>] = flightId;
+flightCancelling.addEventListener(<span class="hljs-string">'closed'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">document</span>.body.removeChild(flightCancelling));
+
+<span class="hljs-built_in">document</span>.body.appendChild(flightCancelling);
+</div></code></pre>
+ </p>
+ </details>
+</li>
+<li>
+<p>Open the file <code>sidebar.component.ts</code>. Inject the <code>FlightCancellingService</code> into the constructor. Also, create a <code>cancel</code> methods the delegates to the <code>FlightCancellingService</code>'s <code>show</code> method. Pass a dummy parameter to the <code>show</code> method (e. g. <code>show(7)</code>)</p>
+</li>
+<li>
+<p>Open the file <code>sidebar.component.html</code> and add a menu item that calls cancel.</p>
+ <details>
+ <summary>Show code</summary>
+ <p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"cancel()"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ti-arrow-top-right"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Cancel Flights<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</div></code></pre>
+ </p>
+ </details>
+</li>
+<li>
+<p>Start your solution and test it by clicking at <code>Cancel Flights</code>.</p>
+</li>
+</ol>
+<h2 id="dynamically-loading-a-micro-app">Dynamically loading a Micro App</h2>
+<p>This example demonstrates how to dynamically load a µApp that is exposed as a Web Component.</p>
+<ol>
+<li>
+<p>Have a look into the <code>flight-app</code>'s <code>assets</code> folder. Find there a <code>micro-apps</code> folder with a bundle. This bundle contains a micro app that could by deployed separately.</p>
+</li>
+<li>
+<p>Open the <code>sidebar.component.html</code> and add an menu item <code>Your Miles</code>. It shell call a <code>load</code> method when clicked.</p>
+ <details>
+ <summary>Show code</summary>
+ <p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"load()"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ti-arrow-top-right"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Your Miles<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</div></code></pre>
+ </p>
+ </details>
+</li>
+<li>
+<p>Open the <code>sidebar.component.ts</code> file, inject the <code>MicroAppLoaderService</code> into the constructor and implement a <code>load</code> method which calls the <code>MicroAppLoaderService</code>'s load <code>method</code>.</p>
+</li>
+<li>
+<p>In the <code>shared</code> folder, create a <code>micro-app-loader.service.ts</code> file with a <code>load</code> method. This method should create a <code>script</code>-tag for the micro app as well as a <code>client-a</code> element. Also append <code>client-a</code> to the hash so that it starts routing:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Injectable</span>({ providedIn: <span class="hljs-string">'root'</span> })
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MicroAppLoaderService {
+
+    [...]
+    
+    state: <span class="hljs-string">'not_loaded'</span> | <span class="hljs-string">'show'</span> | <span class="hljs-string">'hide'</span> = <span class="hljs-string">'not_loaded'</span>;
+
+    load(): <span class="hljs-built_in">void</span> {
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === <span class="hljs-string">'show'</span>) {
+            location.hash = <span class="hljs-string">''</span>;
+            <span class="hljs-keyword">this</span>.state = <span class="hljs-string">'hide'</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === <span class="hljs-string">'hide'</span>) {
+            location.hash = <span class="hljs-string">'client-a/page1'</span>;
+            <span class="hljs-keyword">this</span>.state = <span class="hljs-string">'show'</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">const</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+            script[<span class="hljs-string">'src'</span>] = <span class="hljs-string">'assets/micro-apps/client-a.bundle.js'</span>;
+            <span class="hljs-built_in">document</span>.body.appendChild(script);
+
+            <span class="hljs-keyword">const</span> clientA = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'client-a'</span>);
+            <span class="hljs-keyword">const</span> content = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">"content"</span>)[<span class="hljs-number">0</span>];
+            content.appendChild(clientA);
+
+            location.hash = <span class="hljs-string">'client-a/page1'</span>;
+            <span class="hljs-keyword">this</span>.state = <span class="hljs-string">'show'</span>;
+        }
+    }
+}
+</div></code></pre>
+</li>
+<li>
+<p>Start your solution and test it.</p>
+</li>
+</ol>
+
+    </body>
+    </html>
